@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#7033ff" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon-180x180.png" sizes="180x180" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="DevPrompt" />
+    <title>%VITE_APP_NAME%</title>
+    <meta name="description" content="Create, organize, and share structured AI prompts with DevPrompt." />
+
+    <!-- Open Graph (static fallback for non-JS crawlers) -->
+    <meta property="og:title" content="%VITE_APP_NAME%" />
+    <meta property="og:description" content="Create, organize, and share structured AI prompts with DevPrompt." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="%VITE_APP_URL%/og-image.svg" />
+    <meta property="og:site_name" content="%VITE_APP_NAME%" />
+    <meta property="og:locale" content="en" />
+
+    <!-- Twitter Card (static fallback) -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="%VITE_APP_NAME%" />
+    <meta name="twitter:description" content="Create, organize, and share structured AI prompts with DevPrompt." />
+    <meta name="twitter:image" content="%VITE_APP_URL%/og-image.svg" />
+
+    <script type="module">
+      if (import.meta.env.DEV) {
+        import('react-grab');
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

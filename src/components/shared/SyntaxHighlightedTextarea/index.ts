@@ -1,0 +1,1 @@
+export { SyntaxHighlightedTextarea } from './SyntaxHighlightedTextarea';

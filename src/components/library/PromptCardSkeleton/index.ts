@@ -1,0 +1,1 @@
+export { PromptCardSkeleton } from './PromptCardSkeleton';

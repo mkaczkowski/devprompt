@@ -1,0 +1,1 @@
+export { RenamePromptDialog } from './RenamePromptDialog';

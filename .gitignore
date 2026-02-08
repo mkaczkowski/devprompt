@@ -1,0 +1,43 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+dist-ssr/
+*.tsbuildinfo
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Testing
+coverage/
+playwright-report/
+test-results/
+playwright/.cache/
+e2e/.clerk/
+
+# Claude Code
+.claude/
+
+# Documentation (internal)
+docs/
+
+# Misc
+tmp/
+*.log
+npm-debug.log*
+
+# Local Netlify folder
+.netlify
+
+# Supabase local temp files
+supabase/.temp/

@@ -1,0 +1,747 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2025-01-01 00:00+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: en\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
+
+#. placeholder {0}: formatCompactNumber(tokenCount)
+#: src/components/library/PromptCard/PromptCard.tsx:74
+msgid "{0} tokens"
+msgstr "{0} tokens"
+
+#: src/components/editor/EditableText/EditableText.tsx:133
+msgid "{ariaLabel}: {displayValue}. Press Enter to edit."
+msgstr "{ariaLabel}: {displayValue}. Press Enter to edit."
+
+#: src/components/library/PromptCard/PromptCard.tsx:88
+msgid "{sectionCount} sections"
+msgstr "{sectionCount} sections"
+
+#: src/components/library/PromptCard/PromptCard.tsx:88
+msgid "1 section"
+msgstr "1 section"
+
+#: src/components/editor/InstructionsCard/InstructionsCard.tsx:159
+#: src/components/editor/InstructionsCard/InstructionsEditDrawer.tsx:67
+#: src/components/editor/InstructionsCard/InstructionsMaximizeDialog.tsx:126
+msgid "Add instructions for how the prompt should be used..."
+msgstr "Add instructions for how the prompt should be used..."
+
+#: src/components/editor/PromptPreview/PromptPreview.tsx:208
+msgid "Add instructions to see the preview"
+msgstr "Add instructions to see the preview"
+
+#: src/components/editor/SectionList/SectionList.tsx:188
+msgid "Add section"
+msgstr "Add section"
+
+#: src/components/shared/ErrorBoundary/ErrorBoundary.tsx:39
+msgid "An unexpected error occurred. You can try again or reload the page."
+msgstr "An unexpected error occurred. You can try again or reload the page."
+
+#: src/pages/NotFound.tsx:45
+msgid "Back to Home"
+msgstr "Back to Home"
+
+#: src/pages/Library.tsx:13
+msgid "Browse, manage, and organize your AI prompts"
+msgstr "Browse, manage, and organize your AI prompts"
+
+#: src/components/library/LibraryEmptyState/LibraryEmptyState.tsx:55
+msgid "Build Better AI Prompts"
+msgstr "Build Better AI Prompts"
+
+#: src/components/editor/InstructionsCard/InstructionsEditDrawer.tsx:76
+#: src/components/editor/RenamePromptDialog/RenamePromptDialog.tsx:83
+#: src/components/editor/SectionEditDrawer/SectionEditDrawer.tsx:104
+#: src/components/library/PromptLibrary/PromptLibrary.tsx:291
+msgid "Cancel"
+msgstr "Cancel"
+
+#: src/components/layout/Header.tsx:70
+msgid "Click to rename"
+msgstr "Click to rename"
+
+#: src/components/editor/InstructionsCard/InstructionsMaximizeDialog.tsx:181
+#: src/components/editor/SectionCard/SectionMaximizeDialog.tsx:165
+msgid "Close"
+msgstr "Close"
+
+#: src/components/shared/SyncToggle/SyncToggle.tsx:46
+#: src/components/shared/SyncToggle/SyncToggle.tsx:66
+msgid "Cloud sync disabled"
+msgstr "Cloud sync disabled"
+
+#: src/components/shared/SyncToggle/SyncToggle.tsx:44
+#: src/components/shared/SyncToggle/SyncToggle.tsx:66
+msgid "Cloud sync enabled"
+msgstr "Cloud sync enabled"
+
+#: src/components/shared/SyncToggle/SyncToggle.tsx:59
+msgid "Cloud sync error"
+msgstr "Cloud sync error"
+
+#: src/components/shared/PromptSync/PromptSync.tsx:22
+msgid "Cloud sync failed"
+msgstr "Cloud sync failed"
+
+#: src/components/shared/SyncToggle/SyncToggle.tsx:65
+msgid "Cloud sync unavailable"
+msgstr "Cloud sync unavailable"
+
+#: src/components/editor/SectionList/SectionList.tsx:212
+#: src/components/editor/SectionList/SectionList.tsx:218
+msgid "Collapse all"
+msgstr "Collapse all"
+
+#: src/components/editor/InstructionsCard/InstructionsCard.tsx:99
+msgid "Collapse instructions"
+msgstr "Collapse instructions"
+
+#: src/components/editor/SectionCard/SectionCard.tsx:189
+msgid "Collapse section"
+msgstr "Collapse section"
+
+#: src/components/editor/InstructionsCard/InstructionsEditDrawer.tsx:59
+#: src/components/editor/SectionEditDrawer/SectionEditDrawer.tsx:87
+msgid "Content"
+msgstr "Content"
+
+#: src/components/editor/CopyPromptButton/CopyPromptButton.tsx:77
+#: src/components/editor/CopyPromptButton/CopyPromptButton.tsx:80
+#: src/components/editor/InstructionsCard/InstructionsMaximizeDialog.tsx:162
+#: src/components/editor/InstructionsCard/InstructionsMaximizeDialog.tsx:174
+#: src/components/editor/SectionCard/SectionMaximizeDialog.tsx:146
+#: src/components/editor/SectionCard/SectionMaximizeDialog.tsx:158
+msgid "Copied"
+msgstr "Copied"
+
+#: src/components/editor/CopyPromptButton/CopyPromptButton.tsx:59
+#: src/pages/Editor.tsx:143
+msgid "Copied to clipboard"
+msgstr "Copied to clipboard"
+
+#: src/components/editor/CopyPromptButton/CopyPromptButton.tsx:80
+#: src/components/editor/InstructionsCard/InstructionsMaximizeDialog.tsx:173
+#: src/components/editor/SectionCard/SectionMaximizeDialog.tsx:157
+#: src/components/library/PromptCard/PromptCard.tsx:138
+msgid "Copy"
+msgstr "Copy"
+
+#: src/components/editor/InstructionsCard/InstructionsMaximizeDialog.tsx:162
+#: src/components/editor/SectionCard/SectionMaximizeDialog.tsx:146
+msgid "Copy content"
+msgstr "Copy content"
+
+#: src/components/library/LibraryEmptyState/LibraryEmptyState.tsx:65
+msgid "Copy full prompts or individual sections"
+msgstr "Copy full prompts or individual sections"
+
+#: src/components/editor/SharePromptButton/SharePromptButton.tsx:143
+#: src/components/library/PromptCard/PromptCard.tsx:172
+msgid "Copy link"
+msgstr "Copy link"
+
+#: src/components/editor/CopyPromptButton/CopyPromptButton.tsx:77
+msgid "Copy prompt"
+msgstr "Copy prompt"
+
+#: src/pages/Editor.tsx:166
+msgid "Create and edit structured AI prompts with sections"
+msgstr "Create and edit structured AI prompts with sections"
+
+#: src/components/library/LibraryEmptyState/LibraryEmptyState.tsx:73
+msgid "Create First Prompt"
+msgstr "Create First Prompt"
+
+#: src/components/library/LibraryEmptyState/LibraryEmptyState.tsx:59
+msgid "Create, organize, and reuse structured prompts for AI assistants"
+msgstr "Create, organize, and reuse structured prompts for AI assistants"
+
+#: src/App.tsx:44
+msgid "Create, organize, and share structured AI prompts for your AI workflows"
+msgstr "Create, organize, and share structured AI prompts for your AI workflows"
+
+#: src/components/library/LibraryHeader/LibraryHeader.tsx:64
+msgid "Date modified"
+msgstr "Date modified"
+
+#: src/components/library/PromptCard/PromptCard.tsx:210
+#: src/components/library/PromptLibrary/PromptLibrary.tsx:294
+msgid "Delete"
+msgstr "Delete"
+
+#: src/components/library/PromptLibrary/PromptLibrary.tsx:281
+msgid "Delete prompt?"
+msgstr "Delete prompt?"
+
+#: src/components/editor/SectionCard/SectionCard.tsx:228
+msgid "Disable"
+msgstr "Disable"
+
+#: src/components/shared/SyncToggle/SyncToggle.tsx:61
+msgid "Disable cloud sync"
+msgstr "Disable cloud sync"
+
+#: src/components/editor/SectionList/SectionList.tsx:160
+msgid "Drop text files to create sections"
+msgstr "Drop text files to create sections"
+
+#: src/components/editor/SectionCard/SectionCard.tsx:220
+#: src/components/library/PromptCard/PromptCard.tsx:147
+msgid "Duplicate"
+msgstr "Duplicate"
+
+#: src/components/editor/InstructionsCard/InstructionsCard.tsx:122
+#: src/components/editor/SectionCard/SectionCard.tsx:213
+#: src/pages/Editor.tsx:174
+msgid "Edit"
+msgstr "Edit"
+
+#: src/components/editor/InstructionsCard/InstructionsEditDrawer.tsx:50
+msgid "Edit Instructions"
+msgstr "Edit Instructions"
+
+#: src/components/editor/InstructionsCard/InstructionsEditDrawer.tsx:52
+msgid "Edit instructions content"
+msgstr "Edit instructions content"
+
+#: src/components/editor/SectionEditDrawer/SectionEditDrawer.tsx:64
+msgid "Edit Section"
+msgstr "Edit Section"
+
+#: src/components/editor/SectionEditDrawer/SectionEditDrawer.tsx:66
+msgid "Edit section title and content"
+msgstr "Edit section title and content"
+
+#: src/pages/Editor.tsx:64
+#: src/pages/Editor.tsx:166
+msgid "Editor"
+msgstr "Editor"
+
+#: src/components/editor/SectionCard/SectionCard.tsx:228
+msgid "Enable"
+msgstr "Enable"
+
+#: src/components/shared/SyncToggle/SyncToggle.tsx:61
+msgid "Enable cloud sync"
+msgstr "Enable cloud sync"
+
+#: src/components/library/PromptLibrary/PromptLibrary.tsx:210
+msgid "Enable cloud sync to share prompts"
+msgstr "Enable cloud sync to share prompts"
+
+#: src/components/editor/RenamePromptDialog/RenamePromptDialog.tsx:71
+msgid "Enter a new name for your prompt."
+msgstr "Enter a new name for your prompt."
+
+#: src/components/editor/SectionCard/SectionCard.tsx:259
+#: src/components/editor/SectionCard/SectionMaximizeDialog.tsx:108
+msgid "Enter section content..."
+msgstr "Enter section content..."
+
+#: src/components/editor/SectionEditDrawer/SectionEditDrawer.tsx:95
+msgid "Enter your content here..."
+msgstr "Enter your content here..."
+
+#: src/components/editor/SectionList/SectionList.tsx:212
+#: src/components/editor/SectionList/SectionList.tsx:218
+msgid "Expand all"
+msgstr "Expand all"
+
+#: src/components/editor/InstructionsCard/InstructionsCard.tsx:99
+msgid "Expand instructions"
+msgstr "Expand instructions"
+
+#: src/components/editor/SectionCard/SectionCard.tsx:189
+msgid "Expand section"
+msgstr "Expand section"
+
+#: src/components/library/PromptCard/PromptCard.tsx:156
+msgid "Export"
+msgstr "Export"
+
+#: src/hooks/useShareAction.ts:66
+msgid "Failed to Copy link"
+msgstr "Failed to Copy link"
+
+#: src/components/library/PromptLibrary/PromptLibrary.tsx:142
+msgid "Failed to copy prompt"
+msgstr "Failed to copy prompt"
+
+#: src/components/editor/CopyPromptButton/CopyPromptButton.tsx:61
+#: src/components/editor/InstructionsCard/InstructionsMaximizeDialog.tsx:106
+#: src/components/editor/SectionCard/SectionMaximizeDialog.tsx:88
+#: src/pages/Editor.tsx:145
+msgid "Failed to copy to clipboard"
+msgstr "Failed to copy to clipboard"
+
+#: src/pages/SharedPrompt.tsx:97
+msgid "Failed to import prompt"
+msgstr "Failed to import prompt"
+
+#: src/components/library/PromptLibrary/PromptLibrary.tsx:132
+msgid "Failed to load prompt data"
+msgstr "Failed to load prompt data"
+
+#: src/components/shared/SyncToggle/SyncToggle.tsx:29
+msgid "Failed to load sync status"
+msgstr "Failed to load sync status"
+
+#: src/hooks/useShareAction.ts:94
+msgid "Failed to share prompt"
+msgstr "Failed to share prompt"
+
+#: src/App.tsx:33
+msgid "Failed to sync profile"
+msgstr "Failed to sync profile"
+
+#: src/hooks/useShareAction.ts:111
+msgid "Failed to unshare prompt"
+msgstr "Failed to unshare prompt"
+
+#: src/components/shared/SyncToggle/SyncToggle.tsx:50
+msgid "Failed to update cloud sync"
+msgstr "Failed to update cloud sync"
+
+#: src/pages/SharedPrompt.tsx:153
+msgid "Go to Library"
+msgstr "Go to Library"
+
+#: src/components/editor/SectionList/SectionList.tsx:196
+#: src/components/editor/SectionList/SectionList.tsx:200
+msgid "Import from file"
+msgstr "Import from file"
+
+#: src/pages/SharedPrompt.tsx:207
+msgid "Import to library"
+msgstr "Import to library"
+
+#: src/pages/SharedPrompt.tsx:210
+msgid "Import to Library"
+msgstr "Import to Library"
+
+#: src/pages/SharedPrompt.tsx:210
+msgid "Importing..."
+msgstr "Importing..."
+
+#: src/pages/SharedPrompt.tsx:315
+msgid "Info"
+msgstr "Info"
+
+#: src/components/editor/InstructionsCard/InstructionsCard.tsx:91
+#: src/components/editor/InstructionsCard/InstructionsMaximizeDialog.tsx:77
+msgid "Instructions"
+msgstr "Instructions"
+
+#: src/components/editor/InstructionsCard/InstructionsMaximizeDialog.tsx:78
+msgid "Instructions content"
+msgstr "Instructions content"
+
+#: src/components/editor/InstructionsCard/InstructionsCard.tsx:112
+msgid "Instructions options"
+msgstr "Instructions options"
+
+#: src/components/library/PromptCard/PromptCard.tsx:68
+msgid "Last updated"
+msgstr "Last updated"
+
+#. placeholder {0}: formatRelativeTime(prompt.updatedAt)
+#: src/components/library/PromptCard/PromptCard.tsx:62
+msgid "Last updated {0}"
+msgstr "Last updated {0}"
+
+#: src/components/library/PromptLibrary/PromptLibrary.tsx:177
+msgid "Library refreshed"
+msgstr "Library refreshed"
+
+#: src/hooks/useShareAction.ts:64
+msgid "Link copied to clipboard"
+msgstr "Link copied to clipboard"
+
+#: src/components/editor/SharePromptButton/SharePromptButton.tsx:95
+msgid "Loading"
+msgstr "Loading"
+
+#: src/pages/SharedPrompt.tsx:123
+msgid "Loading shared prompt"
+msgstr "Loading shared prompt"
+
+#: src/components/shared/SyncToggle/SyncToggle.tsx:60
+msgid "Loading sync status"
+msgstr "Loading sync status"
+
+#: src/components/editor/PromptPreview/PromptPreview.tsx:162
+#: src/components/editor/PromptPreview/PromptPreview.tsx:169
+#: src/pages/SharedPrompt.tsx:231
+#: src/pages/SharedPrompt.tsx:238
+msgid "Markdown"
+msgstr "Markdown"
+
+#: src/components/editor/InstructionsCard/InstructionsCard.tsx:127
+#: src/components/editor/SectionCard/SectionCard.tsx:224
+msgid "Maximize"
+msgstr "Maximize"
+
+#: src/components/library/LibraryHeader/LibraryHeader.tsx:61
+msgid "Name"
+msgstr "Name"
+
+#: src/components/layout/Header.tsx:32
+msgid "Navigate to home"
+msgstr "Navigate to home"
+
+#: src/components/library/LibraryHeader/LibraryHeader.tsx:90
+#: src/components/library/LibraryHeader/LibraryHeader.tsx:92
+msgid "New Prompt"
+msgstr "New Prompt"
+
+#: src/components/editor/SectionList/SectionList.tsx:190
+msgid "New Section"
+msgstr "New Section"
+
+#: src/components/editor/InstructionsCard/InstructionsMaximizeDialog.tsx:132
+#: src/components/editor/SectionCard/SectionMaximizeDialog.tsx:114
+msgid "No content"
+msgstr "No content"
+
+#: src/components/editor/PromptPreview/PromptPreview.tsx:230
+#: src/pages/SharedPrompt.tsx:291
+msgid "No content to display"
+msgstr "No content to display"
+
+#: src/components/library/LibraryEmptyState/LibraryEmptyState.tsx:45
+msgid "No matching prompts"
+msgstr "No matching prompts"
+
+#: src/components/library/PromptLibrary/PromptLibrary.tsx:119
+msgid "Open"
+msgstr "Open"
+
+#: src/components/library/LibraryEmptyState/LibraryEmptyState.tsx:64
+msgid "Organize prompts into reusable sections"
+msgstr "Organize prompts into reusable sections"
+
+#: src/pages/NotFound.tsx:16
+#: src/pages/NotFound.tsx:37
+msgid "Page Not Found"
+msgstr "Page Not Found"
+
+#: src/pages/Editor.tsx:177
+#: src/pages/SharedPrompt.tsx:318
+msgid "Preview"
+msgstr "Preview"
+
+#: src/components/library/PromptLibrary/PromptLibrary.tsx:140
+msgid "Prompt copied to clipboard"
+msgstr "Prompt copied to clipboard"
+
+#: src/components/library/PromptLibrary/PromptLibrary.tsx:162
+msgid "Prompt deleted"
+msgstr "Prompt deleted"
+
+#: src/components/library/PromptLibrary/PromptLibrary.tsx:117
+msgid "Prompt duplicated"
+msgstr "Prompt duplicated"
+
+#: src/components/library/PromptLibrary/PromptLibrary.tsx:151
+msgid "Prompt exported"
+msgstr "Prompt exported"
+
+#: src/pages/SharedPrompt.tsx:94
+msgid "Prompt imported to your library"
+msgstr "Prompt imported to your library"
+
+#: src/hooks/useShareAction.ts:107
+msgid "Prompt is no longer shared"
+msgstr "Prompt is no longer shared"
+
+#: src/pages/Library.tsx:9
+#: src/pages/Library.tsx:13
+msgid "Prompt Library"
+msgstr "Prompt Library"
+
+#: src/pages/SharedPrompt.tsx:147
+msgid "Prompt not found"
+msgstr "Prompt not found"
+
+#: src/pages/SharedPrompt.tsx:134
+msgid "Prompt Not Found"
+msgstr "Prompt Not Found"
+
+#: src/components/library/PromptCard/PromptCard.tsx:126
+msgid "Prompt options"
+msgstr "Prompt options"
+
+#: src/components/library/PromptLibrary/PromptLibrary.tsx:163
+msgid "Prompt restored"
+msgstr "Prompt restored"
+
+#: src/hooks/useShareAction.ts:86
+msgid "Prompt shared!"
+msgstr "Prompt shared!"
+
+#: src/hooks/useShareAction.ts:84
+msgid "Prompt shared! Link copied to clipboard"
+msgstr "Prompt shared! Link copied to clipboard"
+
+#: src/components/editor/RenamePromptDialog/RenamePromptDialog.tsx:79
+msgid "Prompt title"
+msgstr "Prompt title"
+
+#: src/components/layout/Header.tsx:61
+msgid "Prompt title: {promptTitle}. Press Enter to rename."
+msgstr "Prompt title: {promptTitle}. Press Enter to rename."
+
+#: src/components/shared/ErrorBoundary/ErrorBoundary.tsx:54
+msgid "Reload Page"
+msgstr "Reload Page"
+
+#: src/components/editor/SectionCard/SectionCard.tsx:233
+msgid "Remove"
+msgstr "Remove"
+
+#: src/components/editor/RenamePromptDialog/RenamePromptDialog.tsx:70
+msgid "Rename prompt"
+msgstr "Rename prompt"
+
+#: src/components/editor/InstructionsCard/InstructionsMaximizeDialog.tsx:71
+#: src/components/editor/SectionCard/SectionMaximizeDialog.tsx:52
+msgid "Rendered"
+msgstr "Rendered"
+
+#: src/components/editor/PromptPreview/PromptPreview.tsx:151
+#: src/components/editor/PromptPreview/PromptPreview.tsx:158
+#: src/pages/SharedPrompt.tsx:220
+#: src/pages/SharedPrompt.tsx:227
+msgid "Rendered preview"
+msgstr "Rendered preview"
+
+#: src/components/editor/SectionList/SectionList.tsx:181
+#: src/components/editor/SectionList/SectionList.tsx:185
+msgid "Reset to original"
+msgstr "Reset to original"
+
+#: src/components/editor/InstructionsCard/InstructionsEditDrawer.tsx:80
+#: src/components/editor/RenamePromptDialog/RenamePromptDialog.tsx:85
+#: src/components/editor/SectionEditDrawer/SectionEditDrawer.tsx:108
+msgid "Save"
+msgstr "Save"
+
+#: src/components/library/LibraryHeader/LibraryHeader.tsx:45
+msgid "Search prompts..."
+msgstr "Search prompts..."
+
+#: src/components/library/PromptCard/PromptCard.tsx:95
+#: src/pages/SharedPrompt.tsx:191
+msgid "section"
+msgstr "section"
+
+#: src/components/editor/SectionCard/SectionMaximizeDialog.tsx:60
+msgid "Section content"
+msgstr "Section content"
+
+#: src/components/editor/SectionCard/SectionCard.tsx:117
+msgid "Section disabled"
+msgstr "Section disabled"
+
+#: src/components/editor/SectionCard/SectionCard.tsx:136
+msgid "Section duplicated"
+msgstr "Section duplicated"
+
+#: src/components/editor/SectionCard/SectionCard.tsx:117
+msgid "Section enabled"
+msgstr "Section enabled"
+
+#: src/components/editor/SectionCard/SectionCard.tsx:202
+msgid "Section options"
+msgstr "Section options"
+
+#: src/components/editor/SectionCard/SectionCard.tsx:123
+msgid "Section removed"
+msgstr "Section removed"
+
+#: src/components/editor/SectionCard/SectionCard.tsx:124
+msgid "Section restored"
+msgstr "Section restored"
+
+#: src/components/editor/SectionCard/SectionCard.tsx:176
+#: src/components/editor/SectionCard/SectionCard.tsx:180
+#: src/components/editor/SectionEditDrawer/SectionEditDrawer.tsx:81
+msgid "Section title"
+msgstr "Section title"
+
+#: src/components/library/PromptCard/PromptCard.tsx:95
+#: src/pages/SharedPrompt.tsx:191
+msgid "sections"
+msgstr "sections"
+
+#: src/components/editor/SharePromptButton/SharePromptButton.tsx:113
+#: src/components/library/PromptCard/PromptCard.tsx:193
+msgid "Share"
+msgstr "Share"
+
+#: src/hooks/useShareAction.ts:87
+msgid "Share link: {url}"
+msgstr "Share link: {url}"
+
+#: src/components/editor/SharePromptButton/SharePromptButton.tsx:90
+msgid "Share loading"
+msgstr "Share loading"
+
+#: src/components/editor/SharePromptButton/SharePromptButton.tsx:130
+#: src/components/editor/SharePromptButton/SharePromptButton.tsx:138
+msgid "Share options"
+msgstr "Share options"
+
+#: src/components/editor/SharePromptButton/SharePromptButton.tsx:109
+#: src/components/editor/SharePromptButton/SharePromptButton.tsx:116
+msgid "Share prompt"
+msgstr "Share prompt"
+
+#: src/components/library/LibraryEmptyState/LibraryEmptyState.tsx:66
+msgid "Share prompts with others via unique links"
+msgstr "Share prompts with others via unique links"
+
+#: src/components/editor/SharePromptButton/SharePromptButton.tsx:134
+#: src/components/library/PromptCard/PromptCard.tsx:105
+#: src/components/library/PromptCard/PromptCard.tsx:109
+msgid "Shared"
+msgstr "Shared"
+
+#: src/pages/SharedPrompt.tsx:174
+msgid "Shared by"
+msgstr "Shared by"
+
+#: src/pages/SharedPrompt.tsx:59
+#: src/pages/SharedPrompt.tsx:123
+msgid "Shared Prompt"
+msgstr "Shared Prompt"
+
+#: src/components/shared/AccountButton/AccountButton.tsx:23
+#: src/components/shared/AccountButton/AccountButton.tsx:26
+msgid "Sign in"
+msgstr "Sign in"
+
+#: src/components/shared/ErrorBoundary/ErrorBoundary.tsx:35
+msgid "Something went wrong"
+msgstr "Something went wrong"
+
+#: src/components/editor/InstructionsCard/InstructionsMaximizeDialog.tsx:70
+#: src/components/editor/SectionCard/SectionMaximizeDialog.tsx:53
+msgid "Source"
+msgstr "Source"
+
+#: src/components/editor/SharePromptButton/SharePromptButton.tsx:147
+#: src/components/library/PromptCard/PromptCard.tsx:182
+msgid "Stop sharing"
+msgstr "Stop sharing"
+
+#: src/components/editor/SectionList/SectionList.tsx:161
+msgid "Supports .txt, .md, .json, .csv"
+msgstr "Supports .txt, .md, .json, .csv"
+
+#: src/components/shared/ThemeToggle/ThemeToggle.tsx:22
+msgid "Switch to dark mode"
+msgstr "Switch to dark mode"
+
+#: src/components/shared/ThemeToggle/ThemeToggle.tsx:22
+msgid "Switch to light mode"
+msgstr "Switch to light mode"
+
+#: src/components/library/LibraryEmptyState/LibraryEmptyState.tsx:67
+msgid "Sync across devices with cloud storage"
+msgstr "Sync across devices with cloud storage"
+
+#: src/components/editor/InstructionsCard/InstructionsCard.tsx:152
+msgid "Tap to add instructions..."
+msgstr "Tap to add instructions..."
+
+#: src/components/editor/SectionCard/SectionCard.tsx:251
+msgid "Tap to edit..."
+msgstr "Tap to edit..."
+
+#: src/pages/NotFound.tsx:17
+msgid "The page you're looking for doesn't exist or has been moved"
+msgstr "The page you're looking for doesn't exist or has been moved"
+
+#: src/pages/NotFound.tsx:40
+msgid "The page you're looking for doesn't exist or has been moved."
+msgstr "The page you're looking for doesn't exist or has been moved."
+
+#: src/pages/SharedPrompt.tsx:135
+msgid "This shared prompt doesn't exist or has been removed"
+msgstr "This shared prompt doesn't exist or has been removed"
+
+#: src/pages/SharedPrompt.tsx:149
+msgid "This shared prompt doesn't exist or has been removed by the author."
+msgstr "This shared prompt doesn't exist or has been removed by the author."
+
+#. placeholder {0}: promptToDelete?.title
+#: src/components/library/PromptLibrary/PromptLibrary.tsx:284
+msgid "This will permanently delete \"{0}\". This action cannot be undone."
+msgstr "This will permanently delete \"{0}\". This action cannot be undone."
+
+#: src/components/editor/SectionEditDrawer/SectionEditDrawer.tsx:73
+msgid "Title"
+msgstr "Title"
+
+#: src/components/library/LibraryHeader/LibraryHeader.tsx:72
+msgid "Toggle sort direction"
+msgstr "Toggle sort direction"
+
+#: src/components/library/PromptCard/PromptCard.tsx:80
+#: src/pages/SharedPrompt.tsx:196
+msgid "tokens"
+msgstr "tokens"
+
+#: src/components/library/LibraryEmptyState/LibraryEmptyState.tsx:46
+msgid "Try adjusting your search query."
+msgstr "Try adjusting your search query."
+
+#: src/components/shared/ErrorBoundary/ErrorBoundary.tsx:50
+msgid "Try Again"
+msgstr "Try Again"
+
+#: src/components/editor/CopyPromptButton/CopyPromptButton.tsx:62
+#: src/pages/Editor.tsx:146
+msgid "Try selecting the text manually and using Ctrl+C / Cmd+C"
+msgstr "Try selecting the text manually and using Ctrl+C / Cmd+C"
+
+#: src/components/editor/SectionCard/SectionCard.tsx:125
+#: src/components/library/PromptLibrary/PromptLibrary.tsx:164
+msgid "Undo"
+msgstr "Undo"
+
+#: src/hooks/useShareAction.ts:93
+#: src/hooks/useShareAction.ts:110
+msgid "Unknown error"
+msgstr "Unknown error"
+
+#: src/components/layout/Header.tsx:77
+msgid "Untitled"
+msgstr "Untitled"
+
+#: src/components/editor/SectionCard/SectionMaximizeDialog.tsx:59
+msgid "Untitled Section"
+msgstr "Untitled Section"
+
+#: src/pages/SharedPrompt.tsx:304
+msgid "View a shared AI prompt on DevPrompt"
+msgstr "View a shared AI prompt on DevPrompt"
+
+#: src/components/editor/PromptPreview/PromptPreview.tsx:173
+#: src/components/editor/PromptPreview/PromptPreview.tsx:180
+#: src/pages/SharedPrompt.tsx:242
+#: src/pages/SharedPrompt.tsx:249
+msgid "XML"
+msgstr "XML"

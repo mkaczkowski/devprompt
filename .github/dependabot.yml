@@ -1,0 +1,104 @@
+version: 2
+updates:
+  - package-ecosystem: 'npm'
+    directory: '/'
+    schedule:
+      interval: 'weekly'
+      day: 'monday'
+      time: '09:00'
+      timezone: 'UTC'
+    open-pull-requests-limit: 10
+    groups:
+      production:
+        patterns:
+          - 'react*'
+          - 'lucide-react'
+          - 'sonner'
+          - 'radix-ui'
+          - '@radix-ui/*'
+          - 'class-variance-authority'
+          - 'clsx'
+          - 'tailwind-merge'
+          - 'tw-animate-css'
+          - '@fontsource-variable/*'
+          - 'zustand'
+        update-types:
+          - 'minor'
+          - 'patch'
+      routing:
+        patterns:
+          - 'react-router*'
+        update-types:
+          - 'minor'
+          - 'patch'
+      data-fetching:
+        patterns:
+          - '@tanstack/*'
+          - 'react-hook-form'
+          - '@hookform/*'
+          - 'zod'
+        update-types:
+          - 'minor'
+          - 'patch'
+      development:
+        patterns:
+          - '@types/*'
+          - '@vitejs/*'
+          - '@vitest/*'
+          - 'vitest*'
+          - 'vite'
+          - 'typescript*'
+          - 'jsdom'
+        update-types:
+          - 'minor'
+          - 'patch'
+      linting:
+        patterns:
+          - 'eslint*'
+          - '@eslint/*'
+          - 'prettier*'
+          - 'husky'
+          - 'lint-staged'
+          - 'commitlint*'
+          - '@commitlint/*'
+        update-types:
+          - 'minor'
+          - 'patch'
+      testing:
+        patterns:
+          - '@testing-library/*'
+          - '@playwright/*'
+          - 'msw'
+        update-types:
+          - 'minor'
+          - 'patch'
+      monitoring:
+        patterns:
+          - '@sentry/*'
+        update-types:
+          - 'minor'
+          - 'patch'
+      styling:
+        patterns:
+          - 'tailwindcss'
+          - '@tailwindcss/*'
+        update-types:
+          - 'minor'
+          - 'patch'
+      i18n:
+        patterns:
+          - '@lingui/*'
+        update-types:
+          - 'minor'
+          - 'patch'
+    commit-message:
+      prefix: 'chore(deps)'
+
+  - package-ecosystem: 'github-actions'
+    directory: '/'
+    schedule:
+      interval: 'weekly'
+      day: 'monday'
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: 'ci(deps)'

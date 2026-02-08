@@ -1,0 +1,171 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.ref != 'refs/heads/main' && github.ref != 'refs/heads/master' }}
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+      - uses: ./.github/actions/setup-node-deps
+      - run: npm run lint
+      - run: npm run format:check
+
+  typecheck:
+    name: Type Check
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+      - uses: ./.github/actions/setup-node-deps
+      - run: npm run typecheck
+
+  security:
+    name: Security Audit
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+      - uses: ./.github/actions/setup-node-deps
+      - run: npm audit --audit-level=moderate
+
+  build:
+    name: Build
+    needs: [lint, typecheck, security]
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+      - uses: ./.github/actions/setup-node-deps
+      - name: Build
+        run: npm run build
+        env:
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
+          SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
+      - uses: actions/upload-artifact@v6
+        with:
+          name: dist
+          path: dist/
+          retention-days: 7
+
+  test:
+    name: Unit Tests
+    needs: [lint, typecheck]
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v6
+      - uses: ./.github/actions/setup-node-deps
+      - run: npm run test:coverage
+      - uses: actions/upload-artifact@v6
+        with:
+          name: coverage
+          path: coverage/
+          retention-days: 14
+
+  test-e2e:
+    name: E2E Tests (${{ matrix.type }})
+    needs: [build]
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    continue-on-error: ${{ matrix.type == 'performance' }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - type: functional
+            project: functional
+            command: npx playwright test --project=functional
+            report-name: playwright-report
+            upload-on: failure
+          - type: performance
+            project: performance
+            command: PERF_TEST=true npx playwright test --project=performance
+            report-name: performance-report
+            upload-on: always
+    steps:
+      - uses: actions/checkout@v6
+      - uses: ./.github/actions/setup-node-deps
+      - uses: actions/download-artifact@v6
+        with:
+          name: dist
+          path: dist/
+      - name: Get Playwright version
+        id: playwright-version
+        run: echo "version=$(npm ls @playwright/test --json | jq -r '.dependencies["@playwright/test"].version')" >> $GITHUB_OUTPUT
+      - name: Cache Playwright browsers
+        uses: actions/cache@v5
+        id: playwright-cache
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-${{ steps.playwright-version.outputs.version }}
+      - name: Install Playwright browsers
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
+        run: npx playwright install --with-deps chromium
+      - name: Install Playwright deps (when cached)
+        if: steps.playwright-cache.outputs.cache-hit == 'true'
+        run: npx playwright install-deps chromium
+      - name: Run ${{ matrix.type }} tests
+        run: ${{ matrix.command }}
+        env:
+          CI: true
+      - uses: actions/upload-artifact@v6
+        if: ${{ matrix.upload-on == 'always' || failure() }}
+        with:
+          name: ${{ matrix.report-name }}
+          path: playwright-report/
+          retention-days: ${{ matrix.type == 'performance' && 14 || 7 }}
+
+  deploy:
+    name: Deploy
+    needs: [build, test, test-e2e]
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      pull-requests: write
+      deployments: write
+    steps:
+      - uses: actions/download-artifact@v6
+        with:
+          name: dist
+          path: dist/
+
+      - name: Deploy Preview
+        if: github.event_name == 'pull_request'
+        uses: nwtgck/actions-netlify@v3
+        with:
+          publish-dir: './dist'
+          production-deploy: false
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          deploy-message: 'Preview deploy from PR #${{ github.event.number }}'
+          enable-pull-request-comment: true
+          enable-commit-comment: false
+          overwrites-pull-request-comment: true
+          alias: pr-${{ github.event.number }}
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+
+      - name: Deploy Production
+        if: github.event_name == 'push'
+        uses: nwtgck/actions-netlify@v3
+        with:
+          publish-dir: './dist'
+          production-deploy: true
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          deploy-message: 'Production deploy from ${{ github.sha }}'
+          enable-commit-comment: true
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
