@@ -2,6 +2,7 @@ import { renderHook } from '@testing-library/react';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { useTouchSizes } from './useTouchSizes';
+
 import { useMobileContext } from '@/contexts/mobileContext';
 
 // Mock the mobile context
