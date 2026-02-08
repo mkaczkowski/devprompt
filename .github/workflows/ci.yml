@@ -79,21 +79,20 @@ jobs:
     needs: [build]
     runs-on: ubuntu-latest
     timeout-minutes: 15
-    continue-on-error: ${{ matrix.type == 'performance' }}
     strategy:
       fail-fast: false
       matrix:
         include:
-          - type: functional
-            project: functional
-            command: npx playwright test --project=functional
-            report-name: playwright-report
+          - type: desktop
+            project: desktop
+            command: npx playwright test --project=desktop
+            report-name: playwright-report-desktop
             upload-on: failure
-          - type: performance
-            project: performance
-            command: PERF_TEST=true npx playwright test --project=performance
-            report-name: performance-report
-            upload-on: always
+          - type: mobile
+            project: mobile
+            command: npx playwright test --project=mobile
+            report-name: playwright-report-mobile
+            upload-on: failure
     steps:
       - uses: actions/checkout@v6
       - uses: ./.github/actions/setup-node-deps
@@ -125,7 +124,7 @@ jobs:
         with:
           name: ${{ matrix.report-name }}
           path: playwright-report/
-          retention-days: ${{ matrix.type == 'performance' && 14 || 7 }}
+          retention-days: 7
 
   deploy:
     name: Deploy
