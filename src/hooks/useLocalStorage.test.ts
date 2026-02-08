@@ -108,4 +108,52 @@ describe('useLocalStorage', () => {
 
     expect(result.current[0]).toBe(initialValue);
   });
+
+  it('ignores storage events with null newValue', () => {
+    const { result } = renderHook(() => useLocalStorage(key, initialValue));
+
+    act(() => {
+      window.dispatchEvent(new StorageEvent('storage', { key, newValue: null }));
+    });
+
+    expect(result.current[0]).toBe(initialValue);
+  });
+
+  it('handles invalid JSON in storage event gracefully', () => {
+    const consoleWarn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    const { result } = renderHook(() => useLocalStorage(key, initialValue));
+
+    act(() => {
+      window.dispatchEvent(new StorageEvent('storage', { key, newValue: '{bad' }));
+    });
+
+    expect(result.current[0]).toBe(initialValue);
+    consoleWarn.mockRestore();
+  });
+
+  it('handles JSON parse error when key changes', () => {
+    const consoleWarn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    localStorage.setItem('bad-key', '{invalid');
+
+    const { result, rerender } = renderHook(({ k }) => useLocalStorage(k, 'default'), {
+      initialProps: { k: 'good-key' },
+    });
+
+    rerender({ k: 'bad-key' });
+    expect(result.current[0]).toBe('default');
+    consoleWarn.mockRestore();
+  });
+
+  it('handles localStorage.setItem failure gracefully', () => {
+    const consoleWarn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    vi.spyOn(Storage.prototype, 'setItem').mockImplementation(() => {
+      throw new Error('QuotaExceeded');
+    });
+
+    const { result } = renderHook(() => useLocalStorage(key, initialValue));
+
+    expect(result.current[0]).toBe(initialValue);
+    expect(consoleWarn).toHaveBeenCalled();
+    consoleWarn.mockRestore();
+  });
 });

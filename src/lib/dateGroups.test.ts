@@ -135,6 +135,15 @@ describe('groupPromptsByDate', () => {
     expect(groups[groups.length - 1].key).toBe('today');
   });
 
+  it('sorts prompts within a group in asc order', () => {
+    const now = Date.now();
+    const prompts = [makePrompt('newer', now - 100), makePrompt('older', now - 5000)];
+
+    const groups = groupPromptsByDate(prompts, 'asc');
+    expect(groups[0].prompts[0].id).toBe('older');
+    expect(groups[0].prompts[1].id).toBe('newer');
+  });
+
   it('omits empty groups', () => {
     const now = Date.now();
     const prompts = [makePrompt('a', now - 1000)]; // only today

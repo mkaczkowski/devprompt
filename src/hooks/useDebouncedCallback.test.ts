@@ -191,6 +191,22 @@ describe('useDebouncedCallback', () => {
     expect(callback).not.toHaveBeenCalled();
   });
 
+  it('cancel is a no-op when no call is pending', () => {
+    const callback = vi.fn();
+    const { result } = renderHook(() => useDebouncedCallback(callback, 100));
+
+    // Cancel without prior call — should not throw
+    act(() => {
+      result.current.cancel();
+    });
+
+    act(() => {
+      vi.advanceTimersByTime(100);
+    });
+
+    expect(callback).not.toHaveBeenCalled();
+  });
+
   it('can call again after cancel', () => {
     const callback = vi.fn();
     const { result } = renderHook(() => useDebouncedCallback(callback, 100));

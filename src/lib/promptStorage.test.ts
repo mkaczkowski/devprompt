@@ -56,6 +56,12 @@ describe('promptStorage', () => {
       expect(loaded?.sections).toHaveLength(1);
     });
 
+    it('returns null when sections field is not an array', () => {
+      const data = { sections: 'not-an-array' };
+      localStorage.setItem(STORAGE_KEYS.prompt('test-id'), JSON.stringify(data));
+      expect(loadPromptData('test-id')).toBeNull();
+    });
+
     it('filters out invalid sections missing required fields', () => {
       const data = {
         title: 'Test',

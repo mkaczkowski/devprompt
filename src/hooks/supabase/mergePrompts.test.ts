@@ -162,6 +162,19 @@ describe('mergePrompts', () => {
     expect(result.updateLocal).toHaveLength(1); // cloud-newer
   });
 
+  it('skips conflict upload when local data is missing', () => {
+    const local = [createLocalPrompt({ id: 'shared-1', updatedAt: 2000 })];
+    const cloud = [createCloudPrompt({ id: 'shared-1', client_updated_at: 1000 })];
+
+    mockLoadLocalData.mockReturnValue(null);
+
+    const result = mergePrompts(local, cloud, mockLoadLocalData);
+
+    // Local is newer but data is missing — should not upload
+    expect(result.uploadToCloud).toHaveLength(0);
+    expect(result.stats.conflictsLocalWins).toBe(0);
+  });
+
   it('skips local prompts without data', () => {
     const local = [createLocalPrompt({ id: 'no-data' })];
     const cloud: CloudPrompt[] = [];

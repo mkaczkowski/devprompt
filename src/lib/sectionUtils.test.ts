@@ -1,6 +1,14 @@
 import { describe, expect, it } from 'vitest';
 
-import { areAllCollapsed, canCopySections, findSectionById, hasEnabledContent } from './sectionUtils';
+import {
+  areAllCollapsed,
+  canCopySections,
+  findSectionById,
+  getEnabledSections,
+  getSectionsWithContent,
+  getTotalContentLength,
+  hasEnabledContent,
+} from './sectionUtils';
 
 import type { Section } from '@/types';
 
@@ -43,6 +51,39 @@ describe('sectionUtils', () => {
       const section = createSection({ id: 'target' });
       expect(findSectionById([section], 'target')).toBe(section);
       expect(findSectionById([section], 'missing')).toBeUndefined();
+    });
+  });
+
+  describe('getEnabledSections', () => {
+    it('returns only enabled sections', () => {
+      const enabled = createSection({ id: '1', enabled: true });
+      const disabled = createSection({ id: '2', enabled: false });
+      expect(getEnabledSections([enabled, disabled])).toEqual([enabled]);
+    });
+
+    it('returns empty array when none enabled', () => {
+      expect(getEnabledSections([createSection({ enabled: false })])).toEqual([]);
+    });
+  });
+
+  describe('getSectionsWithContent', () => {
+    it('returns sections with non-empty trimmed content', () => {
+      const withContent = createSection({ id: '1', content: 'Hello' });
+      const empty = createSection({ id: '2', content: '   ' });
+      expect(getSectionsWithContent([withContent, empty])).toEqual([withContent]);
+    });
+  });
+
+  describe('getTotalContentLength', () => {
+    it('sums content length of enabled sections only', () => {
+      const a = createSection({ id: '1', enabled: true, content: 'abc' });
+      const b = createSection({ id: '2', enabled: true, content: 'de' });
+      const c = createSection({ id: '3', enabled: false, content: 'fghij' });
+      expect(getTotalContentLength([a, b, c])).toBe(5);
+    });
+
+    it('returns 0 for empty array', () => {
+      expect(getTotalContentLength([])).toBe(0);
     });
   });
 });

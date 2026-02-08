@@ -2,7 +2,7 @@ import { act, renderHook } from '@testing-library/react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { STORAGE_KEYS } from '@/lib/storageKeys';
-import { useFilteredPrompts, useLibraryStore } from '@/stores/libraryStore';
+import { isCloudSyncInProgress, useFilteredPrompts, useGroupedPrompts, useLibraryStore } from '@/stores/libraryStore';
 import type { DeletedPromptResult, PromptMetadata } from '@/types';
 
 // Mock crypto.randomUUID
@@ -39,6 +39,17 @@ describe('libraryStore', () => {
     it.each(['name', 'dateModified'] as const)('sets sortBy to %s', (sortBy) => {
       act(() => useLibraryStore.getState().setSortBy(sortBy));
       expect(useLibraryStore.getState().sortBy).toBe(sortBy);
+    });
+
+    it('auto-sets sortDirection to desc for dateModified', () => {
+      act(() => useLibraryStore.getState().setSortDirection('asc'));
+      act(() => useLibraryStore.getState().setSortBy('dateModified'));
+      expect(useLibraryStore.getState().sortDirection).toBe('desc');
+    });
+
+    it('auto-sets sortDirection to asc for name', () => {
+      act(() => useLibraryStore.getState().setSortBy('name'));
+      expect(useLibraryStore.getState().sortDirection).toBe('asc');
     });
   });
 
@@ -331,5 +342,121 @@ describe('useFilteredPrompts', () => {
     const { result } = renderHook(() => useFilteredPrompts());
     expect(result.current).toHaveLength(2);
     expect(result.current.map((p) => p.title)).toEqual(['Apple Tart', 'Apple Pie']);
+  });
+});
+
+describe('cloud sync actions', () => {
+  const createPromptMetadata = (overrides: Partial<PromptMetadata> = {}): PromptMetadata => ({
+    id: 'prompt-1',
+    title: 'Test Prompt',
+    createdAt: 1000,
+    updatedAt: 1000,
+    ...overrides,
+  });
+
+  beforeEach(() => {
+    localStorage.clear();
+    act(() => useLibraryStore.getState().reset());
+  });
+
+  it('addPromptsFromCloud adds new prompts and skips duplicates', () => {
+    useLibraryStore.setState({
+      prompts: [createPromptMetadata({ id: 'existing' })],
+    });
+
+    act(() => {
+      useLibraryStore
+        .getState()
+        .addPromptsFromCloud([
+          createPromptMetadata({ id: 'existing', title: 'Duplicate' }),
+          createPromptMetadata({ id: 'new-1', title: 'New Prompt' }),
+        ]);
+    });
+
+    const prompts = useLibraryStore.getState().prompts;
+    expect(prompts).toHaveLength(2);
+    expect(prompts[1].id).toBe('new-1');
+  });
+
+  it('updatePromptsFromCloud updates matching prompts', () => {
+    useLibraryStore.setState({
+      prompts: [createPromptMetadata({ id: 'p1', title: 'Old' }), createPromptMetadata({ id: 'p2', title: 'Keep' })],
+    });
+
+    act(() => {
+      useLibraryStore.getState().updatePromptsFromCloud([createPromptMetadata({ id: 'p1', title: 'Updated' })]);
+    });
+
+    const prompts = useLibraryStore.getState().prompts;
+    expect(prompts[0].title).toBe('Updated');
+    expect(prompts[1].title).toBe('Keep');
+  });
+
+  it('isCloudSyncInProgress returns false outside sync', () => {
+    expect(isCloudSyncInProgress()).toBe(false);
+  });
+});
+
+describe('useGroupedPrompts', () => {
+  const createPromptMetadata = (overrides: Partial<PromptMetadata> = {}): PromptMetadata => ({
+    id: 'prompt-1',
+    title: 'Test Prompt',
+    createdAt: 1000,
+    updatedAt: 1000,
+    ...overrides,
+  });
+
+  beforeEach(() => {
+    localStorage.clear();
+    act(() => useLibraryStore.getState().reset());
+  });
+
+  it('returns grouped data when sorted by dateModified', () => {
+    useLibraryStore.setState({
+      prompts: [createPromptMetadata({ id: 'p1', updatedAt: Date.now() })],
+      sortBy: 'dateModified',
+      sortDirection: 'desc',
+    });
+
+    const { result } = renderHook(() => useGroupedPrompts());
+    expect(result.current.grouped).toBe(true);
+    if (result.current.grouped) {
+      expect(result.current.groups).toBeDefined();
+    }
+  });
+
+  it('returns flat list when sorted by name', () => {
+    useLibraryStore.setState({
+      prompts: [
+        createPromptMetadata({ id: 'p1', title: 'Banana' }),
+        createPromptMetadata({ id: 'p2', title: 'Apple' }),
+      ],
+      sortBy: 'name',
+      sortDirection: 'asc',
+    });
+
+    const { result } = renderHook(() => useGroupedPrompts());
+    expect(result.current.grouped).toBe(false);
+    if (!result.current.grouped) {
+      expect(result.current.prompts.map((p) => p.title)).toEqual(['Apple', 'Banana']);
+    }
+  });
+
+  it('filters by search query', () => {
+    useLibraryStore.setState({
+      prompts: [
+        createPromptMetadata({ id: 'p1', title: 'Apple' }),
+        createPromptMetadata({ id: 'p2', title: 'Banana' }),
+      ],
+      searchQuery: 'apple',
+      sortBy: 'name',
+      sortDirection: 'asc',
+    });
+
+    const { result } = renderHook(() => useGroupedPrompts());
+    expect(result.current.grouped).toBe(false);
+    if (!result.current.grouped) {
+      expect(result.current.prompts).toHaveLength(1);
+    }
   });
 });
