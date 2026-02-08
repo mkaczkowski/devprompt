@@ -40,7 +40,7 @@ describe('showUndoToast', () => {
     showUndoToast('Deleted', onUndo, { undoneMessage: 'Restored!' });
 
     const call = vi.mocked(toast).mock.calls.at(-1)!;
-    const action = (call[1] as { action: { onClick: () => void } }).action;
+    const action = (call[1] as unknown as { action: { onClick: () => void } }).action;
     action.onClick();
 
     expect(onUndo).toHaveBeenCalled();
@@ -52,7 +52,7 @@ describe('showUndoToast', () => {
     showUndoToast('Deleted', onUndo);
 
     const call = vi.mocked(toast).mock.calls.at(-1)!;
-    const action = (call[1] as { action: { onClick: () => void } }).action;
+    const action = (call[1] as unknown as { action: { onClick: () => void } }).action;
     vi.mocked(toast.success).mockClear();
     action.onClick();
 

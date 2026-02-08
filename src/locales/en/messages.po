@@ -44,7 +44,7 @@ msgstr "Add instructions to see the preview"
 msgid "Add section"
 msgstr "Add section"
 
-#: src/components/shared/ErrorBoundary/ErrorBoundary.tsx:39
+#: src/components/shared/ErrorBoundary/ErrorFallbackUI.tsx:25
 msgid "An unexpected error occurred. You can try again or reload the page."
 msgstr "An unexpected error occurred. You can try again or reload the page."
 
@@ -502,7 +502,7 @@ msgstr "Prompt title"
 msgid "Prompt title: {promptTitle}. Press Enter to rename."
 msgstr "Prompt title: {promptTitle}. Press Enter to rename."
 
-#: src/components/shared/ErrorBoundary/ErrorBoundary.tsx:54
+#: src/components/shared/ErrorBoundary/ErrorFallbackUI.tsx:40
 msgid "Reload Page"
 msgstr "Reload Page"
 
@@ -632,7 +632,7 @@ msgstr "Shared Prompt"
 msgid "Sign in"
 msgstr "Sign in"
 
-#: src/components/shared/ErrorBoundary/ErrorBoundary.tsx:35
+#: src/components/shared/ErrorBoundary/ErrorFallbackUI.tsx:21
 msgid "Something went wrong"
 msgstr "Something went wrong"
 
@@ -708,7 +708,7 @@ msgstr "tokens"
 msgid "Try adjusting your search query."
 msgstr "Try adjusting your search query."
 
-#: src/components/shared/ErrorBoundary/ErrorBoundary.tsx:50
+#: src/components/shared/ErrorBoundary/ErrorFallbackUI.tsx:36
 msgid "Try Again"
 msgstr "Try Again"
 
