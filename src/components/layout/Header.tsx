@@ -5,7 +5,7 @@ import { Link, useLocation } from 'react-router';
 
 import { RenamePromptDialog } from '@/components/editor';
 import { Logo } from '@/components/layout/Logo';
-import { AccountButton, SyncToggle, ThemeToggle } from '@/components/shared';
+import { AccountButton, GitHubLink, SyncToggle, ThemeToggle } from '@/components/shared';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 import { useHeaderContext } from '@/contexts';
 import { ROUTES } from '@/lib/routes';
@@ -89,6 +89,7 @@ export function Header() {
         <div className="flex items-center gap-2">
           {/* Cloud sync toggle - only for signed in users */}
           <SyncToggle />
+          <GitHubLink />
           <ThemeToggle />
           {/* Account button - sign in/out */}
           <AccountButton />

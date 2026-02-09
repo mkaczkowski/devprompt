@@ -80,11 +80,11 @@ export function SyncToggle() {
             size={sizes.toggle}
             aria-label={getAriaLabel()}
             className={cn(
-              'text-muted-foreground data-[state=on]:text-foreground',
+              'text-muted-foreground data-[state=on]:text-primary',
               hasError && 'text-destructive hover:text-destructive',
             )}
           >
-            <Icon className={cn('size-4', isLoading && 'animate-spin')} />
+            <Icon className={cn('size-5', isLoading && 'animate-spin')} />
           </Toggle>
         </TooltipTrigger>
         <TooltipContent>{getTooltipContent()}</TooltipContent>

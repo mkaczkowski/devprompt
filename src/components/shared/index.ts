@@ -1,5 +1,6 @@
 export { AccountButton } from './AccountButton';
 export { ErrorBoundary } from './ErrorBoundary';
+export { GitHubLink } from './GitHubLink';
 export { MarkdownRenderer, MarkdownSkeleton } from './MarkdownRenderer';
 export { ProfileSync } from './ProfileSync';
 export { PromptSync } from './PromptSync';
