@@ -16,6 +16,5 @@ export function getEditorRoute(promptId: string): string {
  * Generate full public URL for a shared prompt.
  */
 export function getSharedPromptUrl(shareToken: string): string {
-  const baseUrl = import.meta.env.VITE_APP_URL || window.location.origin;
-  return `${baseUrl}/s/${shareToken}`;
+  return `${window.location.origin}/s/${shareToken}`;
 }

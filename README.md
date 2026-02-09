@@ -5,7 +5,21 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.9-blue.svg)](https://www.typescriptlang.org/)
 [![React](https://img.shields.io/badge/React-19-61dafb.svg)](https://react.dev/)
 
-A prompt management tool that parses markdown into sections for selective copying. Perfect for developers and AI practitioners who work with structured prompts.
+Organize, manage, and share your AI prompts with ease. DevPrompt parses markdown into collapsible sections you can selectively copy, reorder, and sync across devices — so your prompt library is always at hand.
+
+## Screenshots
+
+### Desktop
+
+|             Dark Theme              |              Light Theme              |
+| :---------------------------------: | :-----------------------------------: |
+| ![Dark Theme](screenshots/dark.png) | ![Light Theme](screenshots/light.png) |
+
+### Mobile
+
+|                               Dark Theme                                |                                Light Theme                                |
+| :---------------------------------------------------------------------: | :-----------------------------------------------------------------------: |
+| <img src="screenshots/mobile-dark.png" alt="Mobile Dark" width="300" /> | <img src="screenshots/mobile-light.png" alt="Mobile Light" width="300" /> |
 
 ## Features
 
@@ -31,25 +45,15 @@ A prompt management tool that parses markdown into sections for selective copyin
 - **Testing**: Vitest + Playwright
 - **i18n**: LinguiJS
 
-## Prerequisites
+## Getting Started
 
-- Node.js >= 22.0.0 (see `.nvmrc`)
-- npm
-
-## Installation
+> **Prerequisites:** Node.js >= 22.0.0 (see `.nvmrc`) and npm
 
 ```bash
-# Clone the repository
 git clone https://github.com/mkaczkowski/webapp-client.git
 cd webapp-client
-
-# Install dependencies
 npm install
-
-# Copy environment variables
 cp .env.example .env
-
-# Start development server
 npm run dev
 ```
 
@@ -75,57 +79,25 @@ Copy `.env.example` to `.env` and configure:
 ## Development
 
 ```bash
-# Start dev server
-npm run dev
-
-# Run tests
-npm run test
-
-# Run tests in watch mode
-npm run test:watch
-
-# Run E2E tests
-npm run e2e
-
-# Type checking
-npm run typecheck
-
-# Linting
-npm run lint
-
-# Formatting
-npm run format
-```
-
-## Building for Production
-
-```bash
-# Build the application
-npm run build
-
-# Preview the production build
-npm run preview
+npm run dev               # Start dev server
+npm run build             # Production build
+npm run preview           # Preview production build
+npm run typecheck         # Type checking
+npm run lint              # Linting
+npm run format            # Formatting
 ```
 
 ## Testing
 
-The project maintains 80% code coverage threshold:
+The project maintains 80% code coverage threshold.
 
 ```bash
-# Run unit tests
-npm run test
-
-# Run with coverage report
-npm run test:coverage
-
-# Run E2E tests (desktop)
-npm run e2e
-
-# Run E2E tests (mobile)
-npm run e2e:mobile
-
-# Run E2E tests with UI
-npm run e2e:ui
+npm run test              # Run unit tests
+npm run test:watch        # Watch mode
+npm run test:coverage     # Coverage report
+npm run e2e               # E2E tests (desktop)
+npm run e2e:mobile        # E2E tests (mobile)
+npm run e2e:ui            # E2E tests with UI
 ```
 
 ## Project Structure

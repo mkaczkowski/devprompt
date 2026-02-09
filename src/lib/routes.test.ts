@@ -1,4 +1,4 @@
-import { describe, expect, it, vi } from 'vitest';
+import { describe, expect, it } from 'vitest';
 
 import { getEditorRoute, getSharedPromptUrl, ROUTES } from './routes';
 
@@ -19,16 +19,8 @@ describe('routes', () => {
   });
 
   describe('getSharedPromptUrl', () => {
-    it('uses VITE_APP_URL when set', () => {
-      vi.stubEnv('VITE_APP_URL', 'https://example.com');
-      expect(getSharedPromptUrl('token-1')).toBe('https://example.com/s/token-1');
-      vi.unstubAllEnvs();
-    });
-
-    it('falls back to window.location.origin', () => {
-      vi.stubEnv('VITE_APP_URL', '');
-      expect(getSharedPromptUrl('token-2')).toBe(`${window.location.origin}/s/token-2`);
-      vi.unstubAllEnvs();
+    it('generates full URL using window.location.origin', () => {
+      expect(getSharedPromptUrl('token-1')).toBe(`${window.location.origin}/s/token-1`);
     });
   });
 });

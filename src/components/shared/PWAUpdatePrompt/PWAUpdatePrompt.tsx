@@ -21,7 +21,10 @@ export function PWAUpdatePrompt() {
   });
 
   useEffect(() => {
-    if (offlineReady) {
+    const isInstalledPWA =
+      window.matchMedia('(display-mode: standalone)').matches ||
+      (navigator as unknown as { standalone?: boolean }).standalone === true;
+    if (offlineReady && isInstalledPWA) {
       toast.success('App ready to work offline');
     }
   }, [offlineReady]);
