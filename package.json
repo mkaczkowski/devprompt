@@ -58,7 +58,7 @@
     "@lingui/core": "^5.7.0",
     "@lingui/react": "^5.7.0",
     "@radix-ui/react-slot": "^1.2.3",
-    "@sentry/react": "^10.32.1",
+    "@sentry/react": "^10.45.0",
     "@supabase/supabase-js": "^2.95.3",
     "@tanstack/react-query": "^5.90.16",
     "class-variance-authority": "^0.7.1",
